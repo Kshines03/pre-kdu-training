@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Calculator</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right, #333, #222);
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+        }
+
+        input, button {
+            margin: 10px;
+            padding: 20px;
+            font-size: 24px;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #444;
+            color: #fff;
+            outline: none;
+        }
+
+        input::placeholder {
+            color: #888;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: #e74c3c;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #c0392b;
+        }
+
+        #result-container {
+            margin-top: 20px;
+            padding: 30px;
+            font-size: 36px;
+            border-radius: 18px;
+            background-color: #555;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+<div style="display: flex; flex-direction: row;">
+    <input type="number" id="num1" placeholder="Enter number 1">
+    <input type="number" id="num2" placeholder="Enter number 2">
+</div>
+
+<div class="button-group">
+    <button onclick="add()">Addition (+)</button>
+    <button onclick="subtract()">Subtraction (-)</button>
+    <button onclick="multiply()">Multiplication (*)</button>
+    <button onclick="divide()">Division (/)</button>
+</div>
+
+<div id="result-container"></div>
+
+<script>
+    function add() {
+        const num1 = parseFloat(document.getElementById('num1').value);
+        const num2 = parseFloat(document.getElementById('num2').value);
+        document.getElementById('result-container').innerText = `Result: ${num1 + num2}`;
+    }
+
+    function subtract() {
+        const num1 = parseFloat(document.getElementById('num1').value);
+        const num2 = parseFloat(document.getElementById('num2').value);
+        document.getElementById('result-container').innerText = `Result: ${num1 - num2}`;
+    }
+
+    function multiply() {
+        const num1 = parseFloat(document.getElementById('num1').value);
+        const num2 = parseFloat(document.getElementById('num2').value);
+        document.getElementById('result-container').innerText = `Result: ${num1 * num2}`;
+    }
+
+    function divide() {
+        const num1 = parseFloat(document.getElementById('num1').value);
+        const num2 = parseFloat(document.getElementById('num2').value);
+        if (num2 !== 0) {
+            document.getElementById('result-container').innerText = `Result: ${num1 / num2}`;
+        } else {
+            document.getElementById('result-container').innerText = "Cannot divide by zero!";
+        }
+    }
+</script>
+
+</body>
+</html>
